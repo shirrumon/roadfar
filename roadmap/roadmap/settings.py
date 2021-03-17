@@ -58,7 +58,7 @@ ROOT_URLCONF = 'roadmap.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['roadmap/accounts/templates', 'roadmap/roadtrip/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
