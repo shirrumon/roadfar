@@ -52,3 +52,23 @@ def unit_detail(request, pk):
     set = get_object_or_404(Category, pk=pk)
     unit = Step.objects.filter(category=set)
     return render(request, 'roadtrip/roadunit.html', {'unit' : unit})
+
+
+def delete_unit(request, pk):
+    set = Step.objects.filter(pk=pk)
+    set.delete()
+    return render(request, 'roadtrip/addsucces.html')
+
+
+def post_edit(request, pk):
+    post = get_object_or_404(Step, pk=pk)
+    if request.method == "POST":
+        form = Steping(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = request.user
+            post.save()
+            return redirect('myRoads')
+    else:
+        form = Steping(instance=post)
+    return render(request, 'roadtrip/addtarg.html', {'form': form})

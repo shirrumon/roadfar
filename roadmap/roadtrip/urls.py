@@ -8,5 +8,7 @@ urlpatterns = [
     path('success/', views.addSuccess, name="addSuccess"),
     path('roads/', views.myRoads, name="myRoads"),
     path('roads/<int:pk>/', views.unit_detail, name="unit_detail"),
+    path('roads/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('delete/<int:pk>', views.delete_unit, name="delete_unit"),
     path('accounts/', include('accounts.urls')),
 ]

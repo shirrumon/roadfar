@@ -4,7 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    target = models.CharField(max_length=100)
+    target = models.CharField(User, max_length=100)
 
     def __str__(self):
         return self.target
