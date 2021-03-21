@@ -11,8 +11,8 @@
 <input type="hidden" name="next" value="{{ next }}">
 
 {{ form|crispy }}
-
-<button type="submit" class="btn btn-primary btn-block">Log in</button>
+<br>
+<button type="submit" class="btn btn-primary btn-block">Log in</button> <hr><span> Have no account? <a style="color: green" href="{% url 'register' %}">Registration!</a></span>
 </form>
 </div>
 </div>
