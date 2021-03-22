@@ -63,6 +63,12 @@ def delete_unit(request, pk):
     return render(request, 'roadtrip/addsucces.html')
 
 
+def delete_cat(request, pk):
+    set = Category.objects.filter(pk=pk)
+    set.delete()
+    return render(request, 'roadtrip/myroads.html')
+
+
 def post_edit(request, pk):
     post = get_object_or_404(Step, pk=pk)
     if request.method == "POST":

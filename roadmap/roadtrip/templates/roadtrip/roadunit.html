@@ -1,23 +1,27 @@
 {% extends 'template.html' %}
 {% load crispy_forms_tags %}
 {% block main %}
-    {% for step in unit %}
-    <div class="container">
+{% if unit %}
+ <div class="container">
        <div class="row justify-content-center">
            <div class="col-xs-11 col-md-7">
                 <div class="card">
                   <div class="card-body">
+                      {% for step in unit %}
                        <h5 class="card-title">{{ step.category }}</h5>
                        <h6 class="card-subtitle mb-2 text-muted">{{ step.name }}</h6>
                       <hr>
                     <p class="card-text">{{ step.description }}</p>
                     <a href="{% url 'post_edit' pk=step.pk %}" class="card-link">Edit</a>
                     <a href="{% url 'delete_unit' pk=step.pk %}" class="card-link" style="color: red">Delete</a>
+                      {% endfor %}
+                      {% else %}
+                      <h5>You have no target. <a href="{% url 'addTarg' %}">Add?</a></h5>
                   </div>
                 </div>
                <hr>
            </div>
        </div>
     </div>
-    {% endfor %}
+{% endif %}
 {% endblock %}
