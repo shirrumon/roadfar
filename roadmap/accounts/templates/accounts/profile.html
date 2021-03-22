@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Your account{% endblock %}
+{% block text-account %}<h1 class="text-center launch">Your account</h1>{% endblock %}
+
+{% block main %}
+    {% for profile in model %}
+        <div class="container justify-content-center" style="text-align: center">
+            {% if profile.photo %}
+            <p class="image"><img src="{{ profile.photo.url }}"></p>
+            {% else %}
+            <div class="image"></div>
+            {% endif %}
+                <hr>
+            <div class="data"><h5>Your username: <span>{{ profile.user }}</span></h5></div>
+                <hr>
+            {% for user in modelU %}
+            <div class="data"><h5>Your first name: <span>{{ user.first_name }}</span></h5></div>
+                <hr>
+            <div class="data"><h5>Your email: <span>{{ user.email }}</span></h5></div>
+                <hr>
+            {% endfor %}
+            <div class="data"><h5>Your date of birthday: <span>{{ profile.date_of_birth }}</span></h5></div>
+                <hr>
+            <a class="btn btn-primary" href="{% url 'startPage' %}">Home</a>
+            <a class="btn btn-primary" href="{% url 'edit' %}">Change profile settings</a>
+        </div>
+    {% endfor %}
+<style>
+
+ .image
+ {
+     width: 10em;
+     height: 10em;
+     margin-left: 30%;
+ }
+.image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: 0 0;
+}
+
+.data span
+{
+    color: green
+}
+</style>
+{% endblock %}

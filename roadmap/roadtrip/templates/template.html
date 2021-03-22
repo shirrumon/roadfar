@@ -42,7 +42,7 @@
         {% if request.user.is_authenticated %}
       <li class="nav-item">
         <li class="nav-item">
-        <a class="nav-link" href="#" style="margin-top: 5px; font-weight: bold">Hello, <span style="color: whitesmoke;">{{ request.user.username }}!</span></a>
+        <a class="nav-link" href="{% url 'profile' %}" style="margin-top: 5px; font-weight: bold">Hello, <span style="color: whitesmoke;">{{ request.user.username }}!</span></a>
       </li>
         <li class="nav-item">
         <a class="nav-link active" style="border-style: solid; border-width: 1px; border-color: whitesmoke; border-radius: 5%; text-align: center; margin-top: 5px" href="{% url 'logout' %}">Logout</a>

@@ -33,7 +33,7 @@ def addTarg(request):
         form = Steping()
         model = Category
         form.fields['category'].queryset = model.objects.filter(owner=request.user)
-    return render(request, 'roadtrip/addtarg.html', { 'form' : form})
+    return render(request, 'roadtrip/addtarg.html', {'form' : form})
 
 
 def addCat(request):
