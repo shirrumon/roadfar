@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import Steping, Cat
@@ -30,6 +31,8 @@ def addTarg(request):
             print(form.errors)
     else:
         form = Steping()
+        model = Category
+        form.fields['category'].queryset = model.objects.filter(owner=request.user)
     return render(request, 'roadtrip/addtarg.html', { 'form' : form})
 
 

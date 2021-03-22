@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import Category, Step
+from django.contrib.auth.models import User
 
 
 class Cat(ModelForm):
