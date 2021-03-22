@@ -2,12 +2,13 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import Steping, Cat
-from .models import Category, Step
+from .models import Category, Step, Img
 
 
 def startPage(request):
         if request.user.is_authenticated:
-                return render(request, 'roadtrip/startpage.html')
+                model = Img.objects.all()
+                return render(request, 'roadtrip/startpage.html', {'model' : model})
         else:
                 return HttpResponseRedirect('accounts/login')
 

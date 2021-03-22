@@ -18,3 +18,7 @@ class Step(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Img(models.Model):
+    photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)

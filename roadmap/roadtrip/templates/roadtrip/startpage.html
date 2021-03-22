@@ -1,4 +1,36 @@
 {% extends 'template.html' %}
 {% block main %}
+{% for img in model %}
+<div class="container">
+    <div class="row" justify-content-between style="text-align: center; margin-top: 5em">
+        <div class="col-xs-12 col-md-5">
+            <div class="image"><img src="{{img.photo.url}}"></div>
+        </div>
+        <div class="col-xs-11 col-md-7 txt"><h2>Hello! It's your <span style="color:green">ROADMAP</span></h2><hr>
+        <p>What is a <span style="color:green">ROADMAP</span>? This is a system designed to store your
+        progress in learning something,as well as tracking!
+        In this system,you can also store useful materials on your training: for example links to articles or
+            ready-made methods.<hr> <h5>Good luck on the <span style="color:green">ROAD!</span></h5></p></div>
+    </div>
+</div>
+<style>
+     .image
+ {
+     width: 27em;
+     height: 25em;
+ }
+.image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+}
 
+.txt
+{
+    padding-top: 5%;
+}
+</style>
+{% endfor %}
 {% endblock %}
