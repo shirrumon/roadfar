@@ -5,7 +5,7 @@
 
 {% block main %}
     {% for profile in model %}
-        <div class="container justify-content-center" style="text-align: center">
+        <div class="container justify-content-center tag" style="text-align: center">
             {% if profile.photo %}
             <p class="image"><img src="{{ profile.photo.url }}"></p>
             {% else %}
@@ -27,7 +27,10 @@
         </div>
     {% endfor %}
 <style>
-
+.tag
+{
+    padding-bottom: 5%;
+}
  .image
  {
      width: 10em;
@@ -46,6 +49,17 @@
 .data span
 {
     color: green
+}
+@media(max-width: 640px)
+{
+     .image
+ {
+     width: 10em;
+     height: 10em;
+     margin-left: 25%;
+ }
+}
+
 }
 </style>
 {% endblock %}
